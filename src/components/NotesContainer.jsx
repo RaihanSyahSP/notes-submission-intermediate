@@ -1,5 +1,4 @@
 import React from 'react'
-import { IoMdAddCircle } from "react-icons/io";
 import NotesList from './NotesList';
 import Message from './Message';
 import { Link } from 'react-router-dom';
@@ -16,7 +15,14 @@ const NotesContainer = ({ notes, deleteHandler, archivedHandler }) => {
         <Link to="/add">
           <FloatingButton />
         </Link>
-        {unarchivedNotes.length > 0 ? <NotesList notes={unarchivedNotes} deleteHandler={deleteHandler} archivedHandler={archivedHandler} /> : <Message title="There is no one note" />}
+        {
+          unarchivedNotes.length > 0 ? (
+            <NotesList notes={unarchivedNotes} deleteHandler={deleteHandler} archivedHandler={archivedHandler} />
+          ) : (
+            <Message title="There is no one note" />
+          )
+        } 
+           
       </div>
       {/* <div className="col-span-1">
         <h2 className='text-3xl font-bold text-center md:text-5xl'>Archived Notes</h2>

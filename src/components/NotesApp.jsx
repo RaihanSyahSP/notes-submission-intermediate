@@ -25,7 +25,7 @@ const NotesApp = () => {
       setInitialNotes((prevInitialNotes) => [...prevInitialNotes, newNote]);
     };
 
-    const onDeleteNoteHandler = (id) => {
+    const onDeleteNoteHandler = (id) => {  
       setNotes((prevState) => prevState.filter((note) => note.id !== id));
       setInitialNotes((prevInitialNotes) => prevInitialNotes.filter((note) => note.id !== id));
       enqueueSnackbar("Note deleted successfully", { variant: "success" });

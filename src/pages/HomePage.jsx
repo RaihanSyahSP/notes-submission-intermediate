@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
-import NotesInput from '../components/NotesInput'
 import NotesContainer from '../components/NotesContainer'
 
 
-const HomePage = ({notes, onDeleteNoteHandler, onArchivedNoteHandler}) => {
+const HomePage = ({notes, deleteHandler, archivedHandler}) => {
     
   return (
     <section>
-          {/* <NotesInput addNotes={onAddNotesHandler} /> */}
         <NotesContainer
           notes={notes}
-          deleteHandler={onDeleteNoteHandler}
-          archivedHandler={onArchivedNoteHandler}
+          deleteHandler={deleteHandler}
+          archivedHandler={archivedHandler}
         /> 
     </section>
   )
