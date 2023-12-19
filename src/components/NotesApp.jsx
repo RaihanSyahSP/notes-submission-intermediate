@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useSnackbar } from "notistack";
+import { useSearchParams } from "react-router-dom";
 import Navbar from "./Navbar"
 import { getInitialData } from "../utils/data"
 import HomePage from "../pages/HomePage";
@@ -9,8 +10,15 @@ import ArchivedNote from "../pages/ArchivedNote";
 
 const NotesApp = () => {
     const [initialNotes, setInitialNotes] = useState(getInitialData());
+    const [searchParams, setSearchParams] = useSearchParams();
     const [notes, setNotes] = useState(initialNotes);
     const { enqueueSnackbar } = useSnackbar();
+    const [keyword, setKeyword] = useState(searchParams.get("keyword") || "");
+
+    const changeSearchParams = (search) => {
+      setSearchParams({ keyword: search });
+      setKeyword(search);
+    };
 
     const onAddNotesHandler = ({ title, body, createdAt, archived }) => {
       const newNote = {
@@ -59,17 +67,31 @@ const NotesApp = () => {
     };
 
     const onSearchHandler = (search) => {
-      if (search === "") return setNotes(initialNotes);
-      setNotes((prevState) => {
-        return prevState.filter((note) => note.title.toLowerCase().includes(search.toLowerCase()));
-      });
+      if (search === "") {
+        setNotes(initialNotes);
+      } else {
+        const filteredNotes = initialNotes.filter((note) => note.title.toLowerCase().includes(search.toLowerCase()));
+        setNotes(filteredNotes);
+      }
+      changeSearchParams(search);
     };
+  
+   useEffect(() => {
+     setKeyword(searchParams.get("keyword") || ""); 
+     const initialKeyword = searchParams.get("keyword") || "";
+     if (initialKeyword) {
+       const filteredNotes = initialNotes.filter((note) => note.title.toLowerCase().includes(initialKeyword.toLowerCase()));
+       setNotes(filteredNotes);
+     } else {
+       setNotes(initialNotes);
+     }
+   }, [searchParams, initialNotes]);
     
 
   return (
     <div className="mx-auto h-screen">
       <header>
-        <Navbar onSearch={(search) => onSearchHandler(search)} />
+        <Navbar onSearch={(search) => onSearchHandler(search)} keyword={keyword} />
       </header>
 
       <main>

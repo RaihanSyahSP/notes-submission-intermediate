@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Navbar = ({ onSearch }) => {
+const Navbar = ({ onSearch, keyword }) => {
 
     const inputSearchChangeHandler = (e) => {
       onSearch(e.target.value)
@@ -36,6 +36,7 @@ const Navbar = ({ onSearch }) => {
                 placeholder="Search" 
                 className="input input-bordered w-24 md:w-auto"
                 onChange={inputSearchChangeHandler}
+                value={keyword}
               />
             </div>
           </div>
