@@ -1,6 +1,7 @@
 import React from 'react'
 import { showFormattedDate } from '../utils/data';
 import Modal from './Modal';
+import Button from './FloatingButton';
 
 
 const NotesItem = ({ id, title, body, createdAt, archivedHandler, archived, deleteHandler }) => {
