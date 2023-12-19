@@ -1,9 +1,5 @@
 import React from 'react'
 import { IoMdAddCircle } from "react-icons/io";
-import { MdOutlineDelete } from "react-icons/md";
-import { FaRegBookmark } from "react-icons/fa";
-
-
 
 const FloatingButton = (type, className) => {
   return (

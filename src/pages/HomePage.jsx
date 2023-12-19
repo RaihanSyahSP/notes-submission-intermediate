@@ -3,7 +3,6 @@ import NotesContainer from '../components/NotesContainer'
 
 
 const HomePage = ({notes, deleteHandler, archivedHandler}) => {
-    
   return (
     <section>
         <NotesContainer

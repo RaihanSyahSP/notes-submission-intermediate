@@ -1,8 +1,15 @@
 import React from 'react'
+import NotesContainer from '../components/NotesContainer'
 
-const ArchivedNote = () => {
+const ArchivedNote = ({notes, deleteHandler, archivedHandler}) => {
   return (
-    <div>ArchivedNote</div>
+    <section>
+        <NotesContainer
+          notes={notes}
+          deleteHandler={deleteHandler}
+          archivedHandler={archivedHandler}
+        /> 
+    </section>
   )
 }
 

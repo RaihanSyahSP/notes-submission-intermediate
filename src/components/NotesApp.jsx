@@ -82,7 +82,13 @@ const NotesApp = () => {
             />}
           />
           <Route path="/add" element={<AddNote onAddNotesHandler={onAddNotesHandler} />} />
-          <Route path="/archived" element={<ArchivedNote notes={notes} />} />
+          <Route path="/archived" element={
+            <ArchivedNote
+              notes={notes}
+              archivedHandler={onArchivedNoteHandler}
+              deleteHandler={onDeleteNoteHandler}
+            />}
+          />
         </Routes>
       </main>
     </div>
