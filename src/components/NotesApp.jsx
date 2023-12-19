@@ -23,7 +23,6 @@ const NotesApp = () => {
 
       setNotes((prevState) => [...prevState, newNote]);
       setInitialNotes((prevInitialNotes) => [...prevInitialNotes, newNote]);
-      enqueueSnackbar("Note added successfully", { variant: "success" });
     };
 
     const onDeleteNoteHandler = (id) => {
@@ -82,7 +81,7 @@ const NotesApp = () => {
               archivedHandler={onArchivedNoteHandler}
             />}
           />
-          <Route path="/add" element={<AddNote />} />
+          <Route path="/add" element={<AddNote onAddNotesHandler={onAddNotesHandler} />} />
           <Route path="/archived" element={<ArchivedNote notes={notes} />} />
         </Routes>
       </main>

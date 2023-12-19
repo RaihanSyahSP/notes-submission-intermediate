@@ -1,8 +1,9 @@
 import React from 'react'
+import NotesInput from '../components/NotesInput'
 
-const AddNote = () => {
+const AddNote = ({onAddNotesHandler}) => {
   return (
-    <div>AddNote</div>
+    <NotesInput addNotes={onAddNotesHandler} />
   )
 }
 

@@ -1,5 +1,7 @@
 import React from 'react'
+import parser from 'html-react-parser'
 import NotesItem from './NotesItem'
+
 
 const NotesList = ({ notes, deleteHandler, archivedHandler }) => {
     return (
@@ -9,7 +11,7 @@ const NotesList = ({ notes, deleteHandler, archivedHandler }) => {
             key={note.id}
             id={note.id}
             title={note.title}
-            body={note.body}
+            body={parser(note.body)}
             createdAt={note.createdAt}
             archived={note.archived}
             deleteHandler={deleteHandler}
