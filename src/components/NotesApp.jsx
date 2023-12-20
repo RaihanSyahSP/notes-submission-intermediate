@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
 import { useSnackbar } from "notistack";
 import { useSearchParams } from "react-router-dom";
+
 import Navbar from "./Navbar"
 import { getInitialData } from "../utils/data"
 import HomePage from "../pages/HomePage";
 import { Route, Routes } from "react-router-dom";
 import AddNote from "../pages/AddNote";
 import ArchivedNote from "../pages/ArchivedNote";
+import NoteDetailPage from "../pages/NoteDetail";
 
 const NotesApp = () => {
     const [initialNotes, setInitialNotes] = useState(getInitialData());
@@ -106,6 +108,13 @@ const NotesApp = () => {
           <Route path="/add" element={<AddNote onAddNotesHandler={onAddNotesHandler} />} />
           <Route path="/archived" element={
             <ArchivedNote
+              notes={notes}
+              archivedHandler={onArchivedNoteHandler}
+              deleteHandler={onDeleteNoteHandler}
+            />}
+          />
+          <Route path="/note/:id" element={
+            <NoteDetailPage
               notes={notes}
               archivedHandler={onArchivedNoteHandler}
               deleteHandler={onDeleteNoteHandler}

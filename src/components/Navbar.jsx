@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Navbar = ({ onSearch, keyword }) => {
+
+    const location = useLocation();
+    const id = location.pathname.split("/")[2];
 
     const inputSearchChangeHandler = (e) => {
       onSearch(e.target.value)
@@ -30,15 +34,18 @@ const Navbar = ({ onSearch, keyword }) => {
             <a className="btn btn-ghost text-xl text-white">Notes App</a>
           </div>
           <div className="navbar-end">
-            <div className="form-control">
-              <input 
-                type="text" 
-                placeholder="Search" 
-                className="input input-bordered w-24 md:w-auto"
-                onChange={inputSearchChangeHandler}
-                value={keyword}
-              />
-            </div>
+          {
+            location.pathname !== `/note/${id}` && (
+                <div className="form-control">
+                  <input 
+                    type="text" 
+                    placeholder="Search" 
+                    className="input input-bordered w-24 md:w-auto"
+                    onChange={inputSearchChangeHandler}
+                    value={keyword}
+                  />
+                </div>
+          )}
           </div>
         </div>
       </nav>

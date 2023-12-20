@@ -52,7 +52,7 @@ const NotesInput = ({ addNotes }) => {
         <div className="hidden w-[45opx] px-10 md:block">
             <img src="../public/write.svg" width="450px"></img>  
         </div>
-			<aside className="flex flex-col font-semibold w-full mx-auto items-center lg:w-[450px] ">
+			<aside className="flex flex-col font-semibold w-full mx-auto items-center max-h-96 lg:w-[450px] ">
 				<h1 className="text-2xl font-bold lg:text-5xl">Add Note</h1>
 					<form className="form-control w-full max-w-lg" onSubmit={onFormSubmitHandler} >
 						<label className="label" htmlFor="title">
@@ -77,10 +77,10 @@ const NotesInput = ({ addNotes }) => {
 							</label> 
 
 							<label className="label" htmlFor="notes">
-							</label>
 								<span className="label-text text-xl lg:text-2xl">Note</span>
+							</label>
 							<div 
-								className="textarea textarea-bordered textarea-secondary h-24 rounded-2xl font-normal" 
+								className="textarea textarea-bordered textarea-secondary min-h-fit rounded-2xl font-normal" 
 								id="notes" 
 								data-placeholder="Type notes here"
 								value={body}
