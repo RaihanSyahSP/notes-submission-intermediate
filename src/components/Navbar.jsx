@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
+
 
 const Navbar = ({ onSearch, keyword }) => {
 
@@ -53,3 +55,8 @@ const Navbar = ({ onSearch, keyword }) => {
 }
 
 export default Navbar
+
+Navbar.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+  keyword: PropTypes.string.isRequired,
+};

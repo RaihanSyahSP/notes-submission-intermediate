@@ -1,5 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import PropTypes from "prop-types";
+
 import { showFormattedDate } from '../utils/data';
 import Modal from './Modal';
 
@@ -33,3 +35,13 @@ const NotesItem = ({ id, title, body, createdAt, archivedHandler, archived, dele
 }
 
 export default NotesItem
+
+NotesItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  archivedHandler: PropTypes.func.isRequired,
+  archived: PropTypes.bool.isRequired,
+  deleteHandler: PropTypes.func.isRequired,
+};

@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from "prop-types";
+
 
 const Message = ({title}) => {
   return (
@@ -11,3 +13,7 @@ const Message = ({title}) => {
 }
 
 export default Message
+
+Message.propTypes = {
+  title: PropTypes.string,
+};

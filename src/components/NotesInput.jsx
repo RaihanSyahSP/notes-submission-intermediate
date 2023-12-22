@@ -1,6 +1,8 @@
 import { useState, useRef } from "react"
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
+import PropTypes from "prop-types";
+
 
 const NotesInput = ({ addNotes }) => {
 	const bodyRef = useRef(null);
@@ -97,3 +99,7 @@ const NotesInput = ({ addNotes }) => {
 }
 
 export default NotesInput
+
+NotesInput.propTypes = {
+	addNotes: PropTypes.func.isRequired,
+};

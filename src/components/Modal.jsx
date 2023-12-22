@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from "prop-types";
+
 
 const Modal = ({id, title, deleteHandler}) => {
   return (
@@ -24,3 +26,9 @@ const Modal = ({id, title, deleteHandler}) => {
 }
 
 export default Modal
+
+Modal.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  deleteHandler: PropTypes.func.isRequired,
+};

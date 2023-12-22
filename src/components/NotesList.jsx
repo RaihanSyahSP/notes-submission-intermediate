@@ -1,5 +1,7 @@
 import React from 'react'
 import parser from 'html-react-parser'
+import PropTypes from "prop-types";
+
 import NotesItem from './NotesItem'
 
 
@@ -23,3 +25,9 @@ const NotesList = ({ notes, deleteHandler, archivedHandler }) => {
 }
 
 export default NotesList
+
+NotesList.propTypes = {
+  notes: PropTypes.array.isRequired,
+  deleteHandler: PropTypes.func.isRequired,
+  archivedHandler: PropTypes.func.isRequired,
+};

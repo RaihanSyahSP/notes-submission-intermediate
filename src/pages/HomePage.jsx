@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import NotesContainer from '../components/NotesContainer'
+import React, { useEffect } from 'react'
+import PropTypes from "prop-types";
 
+import NotesContainer from '../components/NotesContainer'
 
 const HomePage = ({ notes, deleteHandler, archivedHandler }) => {
   useEffect(() => {
@@ -16,5 +17,11 @@ const HomePage = ({ notes, deleteHandler, archivedHandler }) => {
     </section>
   )
 }
+
+HomePage.propTypes = {
+  notes: PropTypes.array.isRequired,
+  deleteHandler: PropTypes.func.isRequired,
+  archivedHandler: PropTypes.func.isRequired,
+};
 
 export default HomePage

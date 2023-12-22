@@ -1,5 +1,6 @@
 import React from "react";
 import { IoMdAddCircle, IoMdTrash, IoMdArchive } from "react-icons/io";
+import PropTypes from "prop-types";
 
 const FloatingButton = ({ type, onClick }) => {
   let icon;
@@ -27,3 +28,8 @@ const FloatingButton = ({ type, onClick }) => {
 };
 
 export default FloatingButton;
+
+FloatingButton.propTypes = {
+  type: PropTypes.string,
+  onClick: PropTypes.func,
+};

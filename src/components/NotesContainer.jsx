@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from "prop-types";
+
 import NotesList from './NotesList';
 import Message from './Message';
 import { Link, useLocation } from 'react-router-dom';
@@ -42,3 +44,9 @@ const NotesContainer = ({ notes, deleteHandler, archivedHandler }) => {
 }
 
 export default NotesContainer
+
+NotesContainer.propTypes = {
+  notes: PropTypes.array.isRequired,
+  deleteHandler: PropTypes.func.isRequired,
+  archivedHandler: PropTypes.func.isRequired,
+};

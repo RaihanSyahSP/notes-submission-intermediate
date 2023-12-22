@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import parser from "html-react-parser";
+import PropTypes from "prop-types";
 
 import { showFormattedDate } from "../utils/data";
 import Message from "../components/Message";
@@ -44,3 +45,9 @@ const NoteDetailPage = ({ notes, deleteHandler, archivedHandler }) => {
 };
 
 export default NoteDetailPage;
+
+NoteDetailPage.propTypes = {
+  notes: PropTypes.array.isRequired,
+  deleteHandler: PropTypes.func.isRequired,
+  archivedHandler: PropTypes.func.isRequired,
+};
