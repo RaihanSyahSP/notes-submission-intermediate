@@ -7,7 +7,7 @@ const Navbar = ({ onSearch, keyword }) => {
 
     const location = useLocation();
     const id = location.pathname.split("/")[2];
-
+    
     const inputSearchChangeHandler = (e) => {
       onSearch(e.target.value)
     }

@@ -7,8 +7,8 @@ import { Link, useLocation } from 'react-router-dom';
 import FloatingButton from './FloatingButton';
 
 const NotesContainer = ({ notes, deleteHandler, archivedHandler }) => {
-  const archivedNotes = notes.length > 1 && notes.filter((note) => note.archived);
-  const unarchivedNotes = notes.length > 1 && notes.filter((note) => !note.archived);
+  const archivedNotes =  notes.filter((note) => note.archived);
+  const unarchivedNotes = notes.filter((note) => !note.archived);
   const location = useLocation();
 
   return (
