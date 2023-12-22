@@ -18,21 +18,17 @@ const NoteDetailPage = ({ notes, deleteHandler, archivedHandler }) => {
   }
 
   const { title, body, createdAt } = noteDetail;
-
-  const handleDelete = () => {
-    deleteHandler(id);
-    history("/"); 
-  };
-
-  const handleArchived = () => {
-    archivedHandler(id);
-    history("/"); 
-  };
   
   return (
     <section className="relative max-w-screen-lg mx-auto flex items-center justify-center h-screen">
-      <FloatingButton type="delete" onClick={handleDelete} />
-      <FloatingButton type="archive" onClick={() => archivedHandler(id)} />
+      <FloatingButton type="delete" onClick={() => {
+        deleteHandler(id)
+        history("/")
+      }} />
+      <FloatingButton type="archive" onClick={() => {
+        archivedHandler(id)
+        history("/")
+      }} />
       <div className=" p-8 card shadow-lg border border-secondary min-w-full">
         <h2 className="text-2xl font-bold mb-4">{title}</h2>
         <p className="mb-4">{showFormattedDate(createdAt)}</p>

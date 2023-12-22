@@ -3,6 +3,7 @@ import { useSnackbar } from "notistack";
 import { useSearchParams } from "react-router-dom";
 
 import Navbar from "./Navbar"
+import ErrorPage from "../pages/ErrorPage";
 import { getInitialData } from "../utils/data"
 import HomePage from "../pages/HomePage";
 import { Route, Routes } from "react-router-dom";
@@ -120,6 +121,7 @@ const NotesApp = () => {
               deleteHandler={onDeleteNoteHandler}
             />}
           />
+           <Route path='*' element={<ErrorPage/>} />
         </Routes>
       </main>
     </div>
