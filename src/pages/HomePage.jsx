@@ -4,9 +4,6 @@ import PropTypes from "prop-types";
 import NotesContainer from '../components/NotesContainer'
 
 const HomePage = ({ notes, deleteHandler, archivedHandler }) => {
-  useEffect(() => {
-    console.log(notes)
-  }, [notes])
   return (
     <section>
         <NotesContainer

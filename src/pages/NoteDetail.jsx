@@ -5,9 +5,8 @@ import PropTypes from "prop-types";
 
 import { showFormattedDate } from "../utils/data";
 import Message from "../components/Message";
-import FloatingButton from "../components/FloatingButton";
 
-const NoteDetailPage = ({ notes, deleteHandler, archivedHandler }) => {
+const NoteDetailPage = ({ notes }) => {
   const { id } = useParams();
   const history = useNavigate();
 
@@ -21,14 +20,6 @@ const NoteDetailPage = ({ notes, deleteHandler, archivedHandler }) => {
   
   return (
     <section className="relative max-w-screen-lg mx-auto flex items-center justify-center h-screen">
-      <FloatingButton type="delete" onClick={() => {
-        deleteHandler(id)
-        history("/")
-      }} />
-      <FloatingButton type="archive" onClick={() => {
-        archivedHandler(id)
-        history("/")
-      }} />
       <div className=" p-8 card shadow-lg border border-secondary min-w-full">
         <h2 className="text-2xl font-bold mb-4">{title}</h2>
         <p className="mb-4">{showFormattedDate(createdAt)}</p>
@@ -44,6 +35,4 @@ export default NoteDetailPage;
 
 NoteDetailPage.propTypes = {
   notes: PropTypes.array.isRequired,
-  deleteHandler: PropTypes.func.isRequired,
-  archivedHandler: PropTypes.func.isRequired,
 };

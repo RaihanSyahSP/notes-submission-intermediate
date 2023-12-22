@@ -117,8 +117,6 @@ const NotesApp = () => {
           <Route path="/note/:id" element={
             <NoteDetailPage
               notes={notes}
-              archivedHandler={onArchivedNoteHandler}
-              deleteHandler={onDeleteNoteHandler}
             />}
           />
            <Route path='*' element={<ErrorPage/>} />
