@@ -96,7 +96,7 @@ const NotesApp = () => {
         <Navbar onSearch={(search) => onSearchHandler(search)} keyword={keyword} />
       </header>
 
-      <main>
+      <main className="max-w-7xl mx-auto">
         <Routes>
           <Route path="/" element={
             <HomePage

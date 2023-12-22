@@ -33,7 +33,7 @@ const NoteDetailPage = ({ notes, deleteHandler, archivedHandler }) => {
     <section className="relative max-w-screen-lg mx-auto flex items-center justify-center h-screen">
       <FloatingButton type="delete" onClick={handleDelete} />
       <FloatingButton type="archive" onClick={() => archivedHandler(id)} />
-      <div className=" p-8 card shadow-lg border border-secondary">
+      <div className=" p-8 card shadow-lg border border-secondary min-w-full">
         <h2 className="text-2xl font-bold mb-4">{title}</h2>
         <p className="mb-4">{showFormattedDate(createdAt)}</p>
         <div className="h-fit rounded-2xl max-h-96">
