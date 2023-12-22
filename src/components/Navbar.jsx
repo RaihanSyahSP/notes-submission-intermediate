@@ -35,7 +35,7 @@ const Navbar = ({ onSearch, keyword }) => {
           </div>
           <div className="navbar-end">
           {
-            location.pathname !== `/note/${id}` && (
+            (location.pathname !== `/note/${id}` && location.pathname !== '/add' ) && (
                 <div className="form-control">
                   <input 
                     type="text" 

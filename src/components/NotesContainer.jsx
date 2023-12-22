@@ -15,7 +15,7 @@ const NotesContainer = ({ notes, deleteHandler, archivedHandler }) => {
         <div className="col-span-1 mt-24">
           <h2 className="text-3xl font-bold text-center md:text-5xl">All Notes</h2>
           <Link to="/add">
-            <FloatingButton />
+            <FloatingButton/>
           </Link>
           {
             unarchivedNotes.length > 0 ? (

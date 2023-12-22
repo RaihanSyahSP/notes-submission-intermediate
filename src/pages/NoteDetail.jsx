@@ -1,12 +1,14 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import parser from "html-react-parser";
 
 import { showFormattedDate } from "../utils/data";
 import Message from "../components/Message";
+import FloatingButton from "../components/FloatingButton";
 
 const NoteDetailPage = ({ notes, deleteHandler, archivedHandler }) => {
   const { id } = useParams();
+  const history = useNavigate();
 
   const noteDetail = notes.find((note) => note.id === parseInt(id));
 
@@ -16,8 +18,20 @@ const NoteDetailPage = ({ notes, deleteHandler, archivedHandler }) => {
 
   const { title, body, createdAt } = noteDetail;
 
+  const handleDelete = () => {
+    deleteHandler(id);
+    history("/"); 
+  };
+
+  const handleArchived = () => {
+    archivedHandler(id);
+    history("/"); 
+  };
+  
   return (
-    <section className="max-w-screen-lg mx-auto flex items-center justify-center h-screen">
+    <section className="relative max-w-screen-lg mx-auto flex items-center justify-center h-screen">
+      <FloatingButton type="delete" onClick={handleDelete} />
+      <FloatingButton type="archive" onClick={() => archivedHandler(id)} />
       <div className=" p-8 card shadow-lg border border-secondary">
         <h2 className="text-2xl font-bold mb-4">{title}</h2>
         <p className="mb-4">{showFormattedDate(createdAt)}</p>
